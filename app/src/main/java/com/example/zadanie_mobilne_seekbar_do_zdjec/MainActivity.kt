@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         val seekbHorizontalp3 = findViewById<SeekBar>(R.id.seekBWidthp3)
 
         //progressBar horizontal and vertical
-        val  progressViewHorizontal = findViewById<ProgressBar>(R.id.progressBarWidth)
-        val  progressViewVertical = findViewById<ProgressBar>(R.id.progressBarHeight)
+        val  progressBarHorizontal = findViewById<ProgressBar>(R.id.progressBarWidth)
+        val  progressBarVertical = findViewById<ProgressBar>(R.id.progressBarHeight)
 
         //reset button
         val reset = findViewById<Button>(R.id.Reset)
@@ -56,7 +56,9 @@ class MainActivity : AppCompatActivity() {
         seekbHorizontalp1.setOnSeekBarChangeListener(object : OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress/100f
-                picture1.scaleX = scale.toFloat()
+                picture1.scaleX = scale
+
+                ChangeProgressBarValueHorizontal(seekbHorizontalp1,seekbHorizontalp2, seekbHorizontalp3, progressBarHorizontal)
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
@@ -74,7 +76,8 @@ class MainActivity : AppCompatActivity() {
         seekbHorizontalp2.setOnSeekBarChangeListener(object : OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress/100f
-                picture2.scaleX = scale.toFloat()
+                picture2.scaleX = scale
+                ChangeProgressBarValueHorizontal(seekbHorizontalp1,seekbHorizontalp2, seekbHorizontalp3, progressBarHorizontal)
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
@@ -92,13 +95,16 @@ class MainActivity : AppCompatActivity() {
         seekbHorizontalp3.setOnSeekBarChangeListener(object : OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress/100f
-                picture3.scaleX = scale.toFloat()
+                picture3.scaleX = scale
+                ChangeProgressBarValueHorizontal(seekbHorizontalp1,seekbHorizontalp2, seekbHorizontalp3, progressBarHorizontal)
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {}
             override fun onStopTrackingTouch(p0: SeekBar?) {}
         })
 
-
+    }
+    fun ChangeProgressBarValueHorizontal(seekbar1: SeekBar,seekbar2: SeekBar,seekbar3: SeekBar, progressBar: ProgressBar){
+        progressBar.progress = (seekbar1.progress + seekbar2.progress + seekbar3.progress)/3;
     }
 }
