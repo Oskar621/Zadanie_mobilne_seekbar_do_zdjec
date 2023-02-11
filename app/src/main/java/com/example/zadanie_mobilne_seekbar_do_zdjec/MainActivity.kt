@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.SeekBar
+import android.widget.SeekBar.OnSeekBarChangeListener
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,5 +44,61 @@ class MainActivity : AppCompatActivity() {
             seekbVerticalp2.progress = 100
             seekbVerticalp3.progress = 100
         }
+
+        seekbVerticalp1.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val scale = progress/100f
+                picture1.scaleY = scale
+            }
+            override fun onStartTrackingTouch(p0: SeekBar) {}
+            override fun onStopTrackingTouch(p0: SeekBar) {}
+        })
+        seekbHorizontalp1.setOnSeekBarChangeListener(object : OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val scale = progress/100f
+                picture1.scaleX = scale.toFloat()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {}
+            override fun onStopTrackingTouch(p0: SeekBar?) {}
+        })
+        seekbVerticalp2.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val scale = progress/100f
+                picture2.scaleY = scale
+            }
+            override fun onStartTrackingTouch(p0: SeekBar) {}
+            override fun onStopTrackingTouch(p0: SeekBar) {}
+        })
+
+        seekbHorizontalp2.setOnSeekBarChangeListener(object : OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val scale = progress/100f
+                picture2.scaleX = scale.toFloat()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {}
+            override fun onStopTrackingTouch(p0: SeekBar?) {}
+        })
+        seekbVerticalp3.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val scale = progress/100f
+                picture3.scaleY = scale
+            }
+            override fun onStartTrackingTouch(p0: SeekBar) {}
+            override fun onStopTrackingTouch(p0: SeekBar) {}
+        })
+
+        seekbHorizontalp3.setOnSeekBarChangeListener(object : OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                val scale = progress/100f
+                picture3.scaleX = scale.toFloat()
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {}
+            override fun onStopTrackingTouch(p0: SeekBar?) {}
+        })
+
+
     }
 }
