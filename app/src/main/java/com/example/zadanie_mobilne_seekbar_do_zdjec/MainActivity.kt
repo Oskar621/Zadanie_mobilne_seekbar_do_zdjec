@@ -33,5 +33,15 @@ class MainActivity : AppCompatActivity() {
 
         //reset button
         val reset = findViewById<Button>(R.id.Reset)
+
+        reset.setOnClickListener {
+            seekbHorizontalp1.progress = 100
+            seekbHorizontalp2.progress = 100
+            seekbHorizontalp3.progress = 100
+
+            seekbVerticalp1.progress = 100
+            seekbVerticalp2.progress = 100
+            seekbVerticalp3.progress = 100
+        }
     }
 }
