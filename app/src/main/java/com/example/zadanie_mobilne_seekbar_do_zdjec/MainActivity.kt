@@ -35,6 +35,13 @@ class MainActivity : AppCompatActivity() {
         //reset button
         val reset = findViewById<Button>(R.id.Reset)
 
+
+        // wywolanie na poczatku by zapelnic paski progressu
+        ChangeProgressBarValueVertical(seekbVerticalp1,seekbVerticalp2,seekbVerticalp3,progressBarVertical)
+        ChangeProgressBarValueHorizontal(seekbHorizontalp1,seekbHorizontalp2, seekbHorizontalp3, progressBarHorizontal)
+
+
+
         reset.setOnClickListener {
             seekbHorizontalp1.progress = 100
             seekbHorizontalp2.progress = 100
