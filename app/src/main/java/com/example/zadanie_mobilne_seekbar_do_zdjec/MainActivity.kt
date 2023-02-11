@@ -49,6 +49,8 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress/100f
                 picture1.scaleY = scale
+
+                ChangeProgressBarValueVertical(seekbVerticalp1,seekbVerticalp2,seekbVerticalp3,progressBarVertical)
             }
             override fun onStartTrackingTouch(p0: SeekBar) {}
             override fun onStopTrackingTouch(p0: SeekBar) {}
@@ -68,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress/100f
                 picture2.scaleY = scale
+                ChangeProgressBarValueVertical(seekbVerticalp1,seekbVerticalp2,seekbVerticalp3,progressBarVertical)
             }
             override fun onStartTrackingTouch(p0: SeekBar) {}
             override fun onStopTrackingTouch(p0: SeekBar) {}
@@ -77,6 +80,7 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress/100f
                 picture2.scaleX = scale
+
                 ChangeProgressBarValueHorizontal(seekbHorizontalp1,seekbHorizontalp2, seekbHorizontalp3, progressBarHorizontal)
             }
 
@@ -87,6 +91,8 @@ class MainActivity : AppCompatActivity() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 val scale = progress/100f
                 picture3.scaleY = scale
+
+                ChangeProgressBarValueVertical(seekbVerticalp1,seekbVerticalp2,seekbVerticalp3,progressBarVertical)
             }
             override fun onStartTrackingTouch(p0: SeekBar) {}
             override fun onStopTrackingTouch(p0: SeekBar) {}
@@ -105,6 +111,10 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun ChangeProgressBarValueHorizontal(seekbar1: SeekBar,seekbar2: SeekBar,seekbar3: SeekBar, progressBar: ProgressBar){
+        progressBar.progress = (seekbar1.progress + seekbar2.progress + seekbar3.progress)/3;
+    }
+
+    fun ChangeProgressBarValueVertical(seekbar1: SeekBar,seekbar2: SeekBar,seekbar3: SeekBar, progressBar: ProgressBar){
         progressBar.progress = (seekbar1.progress + seekbar2.progress + seekbar3.progress)/3;
     }
 }
